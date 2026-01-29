@@ -22,17 +22,23 @@
         <img src="/assets/logo.png" alt="Abercrave Miners Welfare Hall logo" />
         <p class="brand-title">Abercrave Miners Welfare Hall</p>
       </div>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#plan">The Plan</a>
-        <a href="#uses">Future Use</a>
-        <a href="#consultation">Consultation</a>
-        <a href="#updates">Updates</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="language-toggle" aria-label="Language selector">
-        <a href="/en/" aria-current="page">English</a>
-        <a href="/cy/">Cymraeg</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span aria-hidden="true"></span>
+        Menu
+      </button>
+      <div class="nav-panel" id="primary-nav" data-open="false">
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#plan">The Plan</a>
+          <a href="#uses">Future Use</a>
+          <a href="#consultation">Consultation</a>
+          <a href="#updates">Updates</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="language-toggle" aria-label="Language selector">
+          <a href="/en/" aria-current="page">English</a>
+          <a href="/cy/">Cymraeg</a>
+        </div>
       </div>
     </header>
 
@@ -259,5 +265,17 @@
         </p>
       </div>
     </footer>
+    <script>
+      const menuButton = document.querySelector(".menu-toggle");
+      const navPanel = document.querySelector("#primary-nav");
+
+      if (menuButton && navPanel) {
+        menuButton.addEventListener("click", () => {
+          const isOpen = navPanel.getAttribute("data-open") === "true";
+          navPanel.setAttribute("data-open", String(!isOpen));
+          menuButton.setAttribute("aria-expanded", String(!isOpen));
+        });
+      }
+    </script>
   </body>
 </html>
