@@ -1,0 +1,8 @@
+{
+  "name": "abercrave-welfare-hall-site",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npx vercel dev"
+  }
+}
